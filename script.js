@@ -1,4 +1,5 @@
 const toggle = document.querySelector(".menu-toggle");
+const pageShell = document.querySelector(".page-shell");
 const siteHeader = document.querySelector(".site-header");
 const nav = document.querySelector(".site-nav");
 const hero = document.querySelector(".hero");
@@ -42,6 +43,7 @@ function updateHeaderMode() {
   const heroBottom = hero.getBoundingClientRect().bottom;
   const shouldCondense = heroBottom <= Math.min(window.innerHeight * 0.32, 280);
   siteHeader.classList.toggle("is-condensed", shouldCondense);
+  pageShell?.classList.toggle("has-floating-toc", shouldCondense);
 }
 
 function setActiveSection(id) {
