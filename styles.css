@@ -70,6 +70,15 @@ button {
   border-top: 0;
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 16px 40px rgba(25, 24, 22, 0.06);
+  transition:
+    width 280ms ease,
+    transform 280ms ease,
+    padding 280ms ease,
+    background 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease,
+    border-radius 280ms ease,
+    top 280ms ease;
 }
 
 .brand,
@@ -106,6 +115,74 @@ button {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--ink);
+}
+
+.site-nav a.is-active {
+  color: var(--ink);
+}
+
+@media (min-width: 801px) {
+  .site-header.is-condensed {
+    top: 1.25rem;
+    left: auto;
+    right: max(1rem, calc((100vw - var(--max-width)) / 2 + 1rem));
+    transform: none;
+    width: min(19rem, calc(100vw - 2rem));
+    align-items: stretch;
+    justify-content: start;
+    gap: 0.9rem;
+    padding: 1rem 1rem 1.05rem;
+    background: rgba(248, 246, 242, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 1rem;
+    box-shadow: 0 22px 54px rgba(25, 24, 22, 0.09);
+  }
+
+  .site-header.is-condensed .brand {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+  }
+
+  .site-header.is-condensed .site-nav {
+    display: grid;
+    justify-content: start;
+    gap: 0.2rem;
+  }
+
+  .site-header.is-condensed .site-nav a {
+    position: relative;
+    padding: 0.32rem 0 0.32rem 1rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    transition:
+      color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .site-header.is-condensed .site-nav a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0.45rem;
+    height: 1px;
+    background: rgba(25, 24, 22, 0.2);
+    transform: translateY(-50%);
+    transition:
+      width 180ms ease,
+      background 180ms ease;
+  }
+
+  .site-header.is-condensed .site-nav a:hover,
+  .site-header.is-condensed .site-nav a:focus-visible,
+  .site-header.is-condensed .site-nav a.is-active {
+    transform: translateX(0.18rem);
+  }
+
+  .site-header.is-condensed .site-nav a.is-active::before {
+    width: 0.7rem;
+    background: var(--ink);
+  }
 }
 
 main {
@@ -238,7 +315,7 @@ figcaption {
 }
 
 .section-heading h2 {
-  max-width: 14ch;
+  max-width: 15.5ch;
   font-size: clamp(2rem, 4vw, 3.3rem);
 }
 
@@ -310,8 +387,30 @@ figcaption {
   border-radius: 1rem;
 }
 
-.model-label,
-.model-meta {
+.model-visual {
+  margin: -1.2rem -1.2rem 0;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0.75rem 0.75rem;
+  border-bottom: 1px solid rgba(25, 24, 22, 0.08);
+  background: rgba(236, 232, 225, 0.8);
+}
+
+.model-visual img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.model-option:first-child .model-visual img {
+  object-position: center 44%;
+}
+
+.model-option:last-child .model-visual img {
+  object-position: center 50%;
+}
+
+.model-label {
   margin: 0;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -330,6 +429,12 @@ figcaption {
   gap: 1rem;
 }
 
+.manifest-principles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .reference-card {
   display: grid;
   gap: 0.85rem;
@@ -339,6 +444,22 @@ figcaption {
   border-radius: 1rem;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
+}
+
+.principle-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.15rem 1.2rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(25, 24, 22, 0.1);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.principle-card p {
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
 
 .reference-card p {
@@ -619,6 +740,7 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .manifest-principles,
   .reference-grid {
     grid-template-columns: 1fr;
   }

@@ -1,7 +1,12 @@
 const toggle = document.querySelector(".menu-toggle");
+const siteHeader = document.querySelector(".site-header");
 const nav = document.querySelector(".site-nav");
 const hero = document.querySelector(".hero");
 const heroImage = document.querySelector(".hero-visual img");
+const sectionLinks = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
+const observedSections = sectionLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 let lightbox;
 let lightboxImage;
 let lightboxFigure;
@@ -27,6 +32,48 @@ if (toggle && nav) {
       toggle.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+function updateHeaderMode() {
+  if (!siteHeader || !hero) {
+    return;
+  }
+
+  const heroBottom = hero.getBoundingClientRect().bottom;
+  const shouldCondense = heroBottom <= Math.min(window.innerHeight * 0.32, 280);
+  siteHeader.classList.toggle("is-condensed", shouldCondense);
+}
+
+function setActiveSection(id) {
+  sectionLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function updateActiveSection() {
+  if (!observedSections.length) {
+    return;
+  }
+
+  const marker = window.innerHeight * 0.3;
+  let currentSection = observedSections[0];
+
+  observedSections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= marker) {
+      currentSection = section;
+    }
+  });
+
+  if (currentSection?.id) {
+    setActiveSection(currentSection.id);
+  }
 }
 
 const createLightbox = () => {
@@ -231,6 +278,12 @@ function updateHeroParallax() {
   heroImage.style.transform = `scale(${scale}) translate3d(0, ${offset}px, 0)`;
 }
 
+function updateScrollUI() {
+  updateHeroParallax();
+  updateHeaderMode();
+  updateActiveSection();
+}
+
 createLightbox();
 
 document.querySelectorAll("main figure img").forEach((image) => {
@@ -259,6 +312,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("scroll", updateHeroParallax, { passive: true });
-window.addEventListener("resize", updateHeroParallax);
-updateHeroParallax();
+window.addEventListener("scroll", updateScrollUI, { passive: true });
+window.addEventListener("resize", updateScrollUI);
+updateScrollUI();
