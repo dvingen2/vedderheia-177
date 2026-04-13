@@ -280,6 +280,35 @@ figcaption {
   gap: 0.8rem;
 }
 
+.model-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.model-option {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(25, 24, 22, 0.1);
+  border-radius: 1rem;
+}
+
+.model-label,
+.model-meta {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.model-copy {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
 .button-link {
   display: inline-flex;
   align-items: center;
@@ -546,6 +575,10 @@ p {
   }
 
   .image-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .model-options {
     grid-template-columns: 1fr;
   }
 }
