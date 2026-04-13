@@ -1,0 +1,15 @@
+# SketchUp source files (too large for GitHub)
+*.skp
+
+# Source documents
+*.docx
+
+# Manifest edition (not part of this deployment)
+manifest-utgave/
+
+# Project memory/documentation
+Prosjekthukommelse/
+PROSJEKTMINNE.md
+
+# macOS
+.DS_Store
