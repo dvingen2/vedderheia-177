@@ -254,6 +254,51 @@ figcaption {
   padding: 1.5rem;
 }
 
+.companion-strip {
+  padding-top: 0;
+}
+
+.companion-card {
+  display: grid;
+  gap: 1rem;
+  max-width: 56rem;
+  padding: 1.6rem;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.companion-copy {
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.companion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(25, 24, 22, 0.16);
+  border-radius: 999px;
+  background: var(--surface);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  background: var(--surface-strong);
+}
+
 .quote-panel p {
   margin: 0;
   font-family: "Iowan Old Style", "Palatino Linotype", serif;
