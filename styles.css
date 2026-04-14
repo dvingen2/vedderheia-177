@@ -311,7 +311,7 @@ figcaption {
 }
 
 .intro-grid {
-  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.95fr);
+  grid-template-columns: 1fr;
   align-items: start;
   gap: 2rem;
 }
@@ -319,14 +319,44 @@ figcaption {
 .intro-copy-block {
   display: grid;
   gap: 1rem;
-  max-width: 50rem;
+  max-width: 68rem;
 }
 
 .intro-lead {
-  max-width: 44rem;
+  max-width: 56rem;
   font-size: clamp(1.16rem, 1.3vw, 1.34rem);
   line-height: 1.7;
   color: var(--ink-soft);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 68rem;
+}
+
+.summary-card {
+  display: grid;
+  gap: 0.7rem;
+  min-height: 100%;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(25, 24, 22, 0.1);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.summary-card h3 {
+  font-size: 0.96rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.summary-card p {
+  color: var(--ink-soft);
+  line-height: 1.68;
 }
 
 .section-heading {
@@ -362,6 +392,7 @@ figcaption {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.56);
   backdrop-filter: blur(16px);
+  max-width: 56rem;
 }
 
 .companion-strip {
@@ -837,6 +868,10 @@ p {
   }
 
   .model-options {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
     grid-template-columns: 1fr;
   }
 
