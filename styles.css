@@ -311,9 +311,22 @@ figcaption {
 }
 
 .intro-grid {
-  grid-template-columns: 0.8fr 1.25fr 0.95fr;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.95fr);
   align-items: start;
   gap: 2rem;
+}
+
+.intro-copy-block {
+  display: grid;
+  gap: 1rem;
+  max-width: 50rem;
+}
+
+.intro-lead {
+  max-width: 44rem;
+  font-size: clamp(1.16rem, 1.3vw, 1.34rem);
+  line-height: 1.7;
+  color: var(--ink-soft);
 }
 
 .section-heading {
@@ -321,6 +334,7 @@ figcaption {
   grid-template-columns: auto 1fr;
   gap: 1.25rem;
   align-items: baseline;
+  margin-bottom: 0.9rem;
 }
 
 .section-heading h2 {
@@ -481,12 +495,20 @@ figcaption {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+  align-items: start;
 }
 
 .manifest-principles {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+  padding-top: 0.15rem;
+}
+
+.principles-block {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 68rem;
 }
 
 .reference-card {
@@ -498,22 +520,31 @@ figcaption {
   border-radius: 1rem;
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
+  align-content: start;
+  min-height: 100%;
 }
 
 .principle-card {
   display: grid;
   gap: 0.7rem;
-  padding: 1.15rem 1.2rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(25, 24, 22, 0.1);
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  padding: 0.9rem 0 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid rgba(25, 24, 22, 0.12);
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .principle-card p {
   color: var(--ink-soft);
   line-height: 1.65;
+}
+
+.principle-card h3 {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .reference-card p {
@@ -533,6 +564,7 @@ figcaption {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.78rem;
+  white-space: nowrap;
 }
 
 .button-link:hover,
@@ -867,6 +899,10 @@ p {
   .section-heading {
     grid-template-columns: 1fr;
     gap: 0.4rem;
+  }
+
+  .principle-card {
+    padding-top: 0.75rem;
   }
 
   .section-copy,
