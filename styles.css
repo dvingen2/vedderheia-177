@@ -20,7 +20,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
     radial-gradient(circle at top left, rgba(0, 0, 0, 0.04), transparent 28%),
     linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
   line-height: 1.5;
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 img {
@@ -50,9 +50,34 @@ button {
 
 .page-shell {
   width: min(calc(100% - 2rem), var(--max-width));
+  max-width: 100%;
   margin: 0 auto;
   padding-bottom: 8rem;
   transition: padding-right 280ms ease;
+}
+
+main,
+.section-block,
+.section-block > *,
+.two-column-text,
+.two-column-text > *,
+.summary-grid,
+.summary-grid > *,
+.image-pair,
+.image-pair > *,
+.image-triptych,
+.image-triptych > *,
+.image-grid-private,
+.image-grid-private > *,
+.model-options,
+.model-options > *,
+.resource-list,
+.resource-list > *,
+.companion-card,
+.hero-copy,
+.site-header,
+.site-header > * {
+  min-width: 0;
 }
 
 .site-header {
@@ -889,7 +914,7 @@ p {
 
 @media (max-width: 800px) {
   .page-shell {
-    width: min(calc(100% - 1.5rem), var(--max-width));
+    width: calc(100% - 1.5rem);
     max-width: 100%;
   }
 
@@ -900,8 +925,9 @@ p {
     right: 0.75rem;
     transform: none;
     width: auto;
-    max-width: calc(100% - 1.5rem);
+    max-width: none;
     padding: 0.9rem 1rem;
+    overflow: hidden;
   }
 
   .menu-toggle {
@@ -917,6 +943,7 @@ p {
   .site-nav.is-open {
     display: grid;
     justify-content: start;
+    min-width: 0;
   }
 
   .hero {
@@ -933,7 +960,7 @@ p {
   }
 
   .hero-copy {
-    width: min(calc(100% - 1.5rem), var(--max-width));
+    width: calc(100% - 1.5rem);
     max-width: none;
     padding: 1.2rem;
     margin-top: 7rem;
@@ -959,6 +986,11 @@ p {
   .resource-note,
   .resource-item-copy p {
     font-size: 1.08rem;
+  }
+
+  .button-link {
+    white-space: normal;
+    text-align: center;
   }
 
   .lightbox-dialog {
