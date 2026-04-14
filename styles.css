@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
     radial-gradient(circle at top left, rgba(0, 0, 0, 0.04), transparent 28%),
     linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
   line-height: 1.5;
+  overflow-x: clip;
 }
 
 img {
@@ -888,12 +890,17 @@ p {
 @media (max-width: 800px) {
   .page-shell {
     width: min(calc(100% - 1.5rem), var(--max-width));
+    max-width: 100%;
   }
 
   .site-header {
     flex-wrap: wrap;
     align-items: start;
-    width: min(calc(100% - 1.5rem), var(--max-width));
+    left: 0.75rem;
+    right: 0.75rem;
+    transform: none;
+    width: auto;
+    max-width: calc(100% - 1.5rem);
     padding: 0.9rem 1rem;
   }
 
@@ -913,6 +920,8 @@ p {
   }
 
   .hero {
+    width: auto;
+    margin-left: 0;
     min-height: 39rem;
     padding-top: 7.5rem;
     padding-bottom: 1.5rem;
@@ -929,6 +938,7 @@ p {
     padding: 1.2rem;
     margin-top: 7rem;
     margin-left: 0.75rem;
+    margin-right: 0.75rem;
   }
 
   .section-heading {
