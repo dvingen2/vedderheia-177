@@ -403,6 +403,10 @@ figcaption {
   max-width: none;
 }
 
+#plan .section-heading h2 {
+  max-width: 31ch;
+}
+
 .section-copy,
 .two-column-text {
   display: grid;
