@@ -318,6 +318,10 @@ figcaption {
   object-fit: cover;
 }
 
+figcaption {
+  display: none;
+}
+
 .hero-visual {
   position: absolute;
   inset: 0;
@@ -738,9 +742,9 @@ figcaption {
 
 .image-grid-private figure {
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr);
   height: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
 }
 
 .image-grid-private figure:nth-child(1) {
