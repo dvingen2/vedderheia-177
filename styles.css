@@ -407,6 +407,10 @@ figcaption {
   max-width: 31ch;
 }
 
+#referanser .section-heading h2 {
+  max-width: none;
+}
+
 .section-copy,
 .two-column-text,
 .three-column-text {
