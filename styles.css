@@ -8,6 +8,7 @@
   --shadow: 0 18px 60px rgba(25, 24, 22, 0.08);
   --max-width: 1440px;
   --gutter: clamp(1.2rem, 2vw, 2rem);
+  --image-breakout: clamp(1.5rem, 4vw, 4.5rem);
   --section-gap: clamp(4rem, 8vw, 8rem);
   --radius: 1.2rem;
 }
@@ -679,6 +680,18 @@ figcaption {
   gap: 2rem;
 }
 
+.full-bleed-card,
+.feature-image,
+.image-pair,
+.image-triptych,
+.image-grid-private {
+  width: min(
+    calc(100% + (2 * var(--image-breakout))),
+    calc(100vw - 2rem)
+  );
+  margin-left: calc(var(--image-breakout) * -1);
+}
+
 .image-triptych {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -928,6 +941,15 @@ p {
   .reference-grid {
     grid-template-columns: 1fr;
   }
+
+  .full-bleed-card,
+  .feature-image,
+  .image-pair,
+  .image-triptych,
+  .image-grid-private {
+    width: calc(100% + var(--image-breakout));
+    margin-left: calc(var(--image-breakout) * -0.5);
+  }
 }
 
 @media (max-width: 800px) {
@@ -956,6 +978,15 @@ p {
     display: none;
     width: 100%;
     padding-bottom: 0.5rem;
+  }
+
+  .full-bleed-card,
+  .feature-image,
+  .image-pair,
+  .image-triptych,
+  .image-grid-private {
+    width: auto;
+    margin-left: 0;
   }
 
   .resource-list {
