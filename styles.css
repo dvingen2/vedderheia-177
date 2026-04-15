@@ -490,6 +490,7 @@ figcaption {
 
 .resource-item {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: 0.9rem;
   align-items: start;
   align-content: start;
@@ -508,7 +509,15 @@ figcaption {
 }
 
 .resource-item .button-link {
-  justify-self: start;
+  justify-self: stretch;
+  width: 100%;
+  min-height: 3.2rem;
+  padding: 0.8rem 0.95rem;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  text-wrap: balance;
 }
 
 .resource-item-copy p {
