@@ -408,7 +408,8 @@ figcaption {
 }
 
 .section-copy,
-.two-column-text {
+.two-column-text,
+.three-column-text {
   display: grid;
   gap: 1.25rem;
   color: var(--ink-soft);
@@ -418,6 +419,12 @@ figcaption {
 
 .two-column-text {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 68rem;
+  column-gap: 2rem;
+}
+
+.three-column-text {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 68rem;
   column-gap: 2rem;
 }
@@ -883,6 +890,7 @@ p {
   .hero,
   .intro-grid,
   .two-column-text,
+  .three-column-text,
   .image-grid-private,
   .image-triptych {
     grid-template-columns: 1fr;
