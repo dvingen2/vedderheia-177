@@ -411,6 +411,10 @@ figcaption {
   max-width: none;
 }
 
+.companion-strip .section-heading h2 {
+  max-width: none;
+}
+
 .section-copy,
 .two-column-text,
 .three-column-text {
@@ -455,6 +459,10 @@ figcaption {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   backdrop-filter: blur(16px);
+}
+
+.companion-strip .companion-card {
+  max-width: none;
 }
 
 .companion-copy {
