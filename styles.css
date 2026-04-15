@@ -723,19 +723,32 @@ figcaption {
 
 .image-grid-private {
   grid-template-columns: 1.1fr 0.9fr 1fr;
+  grid-auto-rows: minmax(16rem, auto);
+  width: min(
+    calc(100% + (3.4 * var(--image-breakout))),
+    calc(100vw - 1rem)
+  );
+  margin-left: calc(var(--image-breakout) * -1.7);
 }
 
 .image-grid-private figure:nth-child(1) {
   grid-row: span 2;
+  min-height: 100%;
 }
 
 .image-grid-private figure:nth-child(1) img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: auto;
+  min-height: 100%;
 }
 
 .image-grid-private figure:nth-child(2) img,
 .image-grid-private figure:nth-child(3) img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
+  min-height: 100%;
+}
+
+.image-grid-private figure {
+  height: 100%;
 }
 
 figure {
