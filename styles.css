@@ -399,6 +399,10 @@ figcaption {
   font-size: clamp(2rem, 4vw, 3.3rem);
 }
 
+#kjerne .section-heading h2 {
+  max-width: none;
+}
+
 .section-copy,
 .two-column-text {
   display: grid;
